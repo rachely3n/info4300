@@ -8,3 +8,5 @@ I've put default files from project 1, still trying to figure out what exactly w
 
 ### update
 Making a bit of progress on part A!
+### update
+Can tokenize properly! now to hash everything in part A!
