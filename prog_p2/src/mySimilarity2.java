@@ -1,15 +1,22 @@
+import org.apache.lucene.search.similarities.TFIDFSimilarity;
+
 //Secondary version used so we can have two different tf.idf scoring measures as the project asks for.
-public class mySimilarity extends TFIDFSimilarity {
-  public mySimilarity() {
+public abstract class mySimilarity2 extends TFIDFSimilarity {
+  public mySimilarity2() {
     super();
   }
   
-  public abstract float tf(float freq) {
+  public float tf(float freq) {
     float val = log(freq + 1);
     return val;
   }
   
-  public abstract float idf(long docFreq, long numDocs) {
+  private float log(float f) {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+public float idf(long docFreq, long numDocs) {
     float val = log(numDocs / (docFreq + 1)) + 1;
     return val;
   }

@@ -1,16 +1,21 @@
-import 
+import org.apache.lucene.search.similarities.TFIDFSimilarity;
 
-public class mySimilarity extends TFIDFSimilarity {
+public abstract class mySimilarity extends TFIDFSimilarity {
   public mySimilarity() {
     super();
   }
   
-  public abstract float tf(float freq) {
+  public float tf(float freq) {
     float val = log(freq + 1);
     return val;
   }
   
-  public abstract float idf(long docFreq, long numDocs) {
+  private float log(float f) {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+public float idf(long docFreq, long numDocs) {
     float val = log(numDocs / docFreq);
     return val;
   }
