@@ -9,5 +9,6 @@
 	<classpathentry kind="lib" path="lib/lucene-analyzers-common-4.5.1.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-core-4.5.1.jar"/>
 	<classpathentry kind="lib" path="lib/lucene-queryparser-4.5.1.jar"/>
+	<classpathentry kind="lib" path="lib/lucene-queries-4.5.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
