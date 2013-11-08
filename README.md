@@ -12,3 +12,6 @@ Making a bit of progress on part A!
 Can tokenize properly! now to hash everything in part A!
 ### update
 Run GetZipf for Part A
+
+### update
+InvertIndex is Part B
