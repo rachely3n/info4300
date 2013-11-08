@@ -1,3 +1,5 @@
+import 
+
 public class mySimilarity extends TFIDFSimilarity {
   public mySimilarity() {
     super();
