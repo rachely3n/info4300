@@ -15,6 +15,7 @@ import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.IndexWriterConfig.OpenMode;
+import org.apache.lucene.search.similarities.BM25Similarity;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
@@ -50,6 +51,9 @@ public class IndexFiles {
 			Analyzer analyzer = new MyAnalyzer(Version.LUCENE_44, stopwords);
 
 			IndexWriterConfig iwc = new IndexWriterConfig(Version.LUCENE_44, analyzer);
+			
+			BM25Similarity temp = new BM25Similarity();
+			iwc.setSimilarity(temp);
 			// Create a new index in the directory, removing any
 			// previously indexed documents:
 			iwc.setOpenMode(OpenMode.CREATE);

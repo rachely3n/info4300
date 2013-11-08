@@ -13,6 +13,7 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.search.similarities.BM25Similarity;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
@@ -28,6 +29,9 @@ public class SearchFiles {
 		try {
 			IndexReader reader = DirectoryReader.open(FSDirectory.open(new File(indexDir)));
 			IndexSearcher searcher = new IndexSearcher(reader);
+			
+			BM25Similarity temp = new BM25Similarity();
+			searcher.setSimilarity(temp);
 			
 			//Used with mySimilarity.java for part E
 			//MySimilarity sim = new mySimilarity();
@@ -67,7 +71,7 @@ public class SearchFiles {
 		return hitPaths;
 	}
 	
-	public static float getAvgLen(IndexReader reader,String field) throws IOException{
+	/**public static float getAvgLen(IndexReader reader,String field) throws IOException{
       		int sum = 0;
       		for (int i = 0; i < reader.numDocs(); i++){
          		TermFreqVector tfv = reader.getTermFreqVector(i, field);
@@ -81,5 +85,6 @@ public class SearchFiles {
       		float avg = (float) sum / reader.numDocs();
       		//System.out.println("average length = " + avg);
       		return avg;
-   	}//end getAvgLen method
+   	} //end getAvgLen method
+   	*/
 }
