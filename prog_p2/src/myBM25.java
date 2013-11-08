@@ -1,3 +1,5 @@
+//NOT ACTUALLY USED ONLY KEPT FOR REFERENCE
+
 public class myBM25{
 
    public static float getAvgLen(IndexReader reader,String field) throws IOException{
