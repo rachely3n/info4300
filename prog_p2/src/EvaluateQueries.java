@@ -7,11 +7,11 @@ import org.apache.lucene.util.Version;
 
 public class EvaluateQueries {
 	public static void main(String[] args) {
-		String docsDir = ""; // directory containing documents
-		String indexDir = ""; // the directory where index is written into
+		String docsDir = "../data/txt"; // directory containing documents
+		String indexDir = "../data/index"; // the directory where index is written into
 
-		String queryFile = "";    // query file
-		String answerFile = "";   // relevance judgements file
+		String queryFile = "../data/cacm_processed.query";    // query file
+		String answerFile = "../data/cacm_processed.rel";   // relevance judgements file
 
 		int numResults = 5;
 
