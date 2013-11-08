@@ -23,9 +23,9 @@ import org.apache.lucene.util.Version;
 /** Index all text files under a directory, the directory is at data/txt/
  */
 
-public class IndexFiles {
+public class IndexFilesBM25 {
 
-	private IndexFiles() {}
+	private IndexFilesBM25() {}
 
 	/** Index all text files under a directory. */
 	public static void buildIndex(String indexPath, String docsPath, CharArraySet stopwords) {
@@ -52,7 +52,8 @@ public class IndexFiles {
 
 			IndexWriterConfig iwc = new IndexWriterConfig(Version.LUCENE_44, analyzer);
 			
-			
+			BM25Similarity temp = new BM25Similarity();
+			iwc.setSimilarity(temp);
 			// Create a new index in the directory, removing any
 			// previously indexed documents:
 			iwc.setOpenMode(OpenMode.CREATE);

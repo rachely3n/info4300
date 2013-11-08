@@ -17,9 +17,9 @@ import org.apache.lucene.search.similarities.BM25Similarity;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
-public class SearchFiles {
+public class SearchFilesBM25 {
 
-	private SearchFiles() {}
+	private SearchFilesBM25() {}
 
 	/** This function is only for test search. */
 	public static List<String> searchQuery(String indexDir, String queryString, int numResults, CharArraySet stopwords) {
@@ -29,6 +29,27 @@ public class SearchFiles {
 		try {
 			IndexReader reader = DirectoryReader.open(FSDirectory.open(new File(indexDir)));
 			IndexSearcher searcher = new IndexSearcher(reader);
+			
+			BM25Similarity temp = new BM25Similarity();
+			searcher.setSimilarity(temp);
+			
+			//Used with mySimilarity.java for part E
+			//MySimilarity sim = new mySimilarity();
+			//searcher.setSimilarity(sim);
+			
+			//Used in part F
+			//String field="Search_Field";
+      			//the second parameter calls the getAvgLength method and automatically calculates the   Average Length value
+      			//BM25Parameters.setAverageLength(field,getAvgLen(reader,field));
+      			//BM25Parameters.setB(0.75f);
+      			//BM25Parameters.setK1(2f);
+      			//BM25BooleanQuery query = new BM25BooleanQuery( "Cystic hydroma" ,field,analyzer);
+      			//System.out.println ("Searching for: " + query.toString(field));
+      			//TopDocs top=searcher.search(query, 10);
+      			//ScoreDoc[] docs = top.scoreDocs;
+      			//for (int i = 0; i < 10; i++){
+         			//System.out.println("the document with id= " + docs[i].doc + " has score ="+docs[i].score);
+      			//}
 			
 			Analyzer analyzer = new MyAnalyzer(Version.LUCENE_44, stopwords);
 
@@ -50,5 +71,20 @@ public class SearchFiles {
 		return hitPaths;
 	}
 	
-
+	/**public static float getAvgLen(IndexReader reader,String field) throws IOException{
+      		int sum = 0;
+      		for (int i = 0; i < reader.numDocs(); i++){
+         		TermFreqVector tfv = reader.getTermFreqVector(i, field);
+         		if(tfv != null) {
+            			int[] tfs = tfv.getTermFrequencies();
+        			for(int j = 0; j < tfv.size(); j++){
+               				sum = sum + tfs[j];
+            			}
+        	 	}
+      		}
+      		float avg = (float) sum / reader.numDocs();
+      		//System.out.println("average length = " + avg);
+      		return avg;
+   	} //end getAvgLen method
+   	*/
 }
