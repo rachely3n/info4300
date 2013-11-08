@@ -44,10 +44,8 @@ public class GetZipf {
 		
 		}//end for
 		//need to sort freq.values();
-		Map<String, Integer> sortedAscMap = sortByAscComparator(freq);
-		Map<String, Integer> sortedDescMap = sortByDescComparator(freq);
-		//System.out.println(freq);	
-		//System.out.println(sortedAscMap);
+		Map<String, Integer> sortedAscMap = sortByAscComparator(freq); //ascending order(alphabetically)
+		Map<String, Integer> sortedDescMap = sortByDescComparator(freq); //descending order (alphabetically and rank)
 		System.out.println(sortedDescMap);
 		int i = 0; int rank = freq.size();
 		for(Entry <String,Integer> entry : sortedDescMap.entrySet()){
@@ -101,7 +99,6 @@ public class GetZipf {
 		// sort list based on comparator
 		Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
 
-			@Override
 			public int compare(Entry<String,Integer> o1, Entry<String,Integer> o2) {
 				if (o1.getValue().equals(o2.getValue())) {
 					return o1.getKey().compareTo(o2.getKey());
@@ -120,20 +117,5 @@ public class GetZipf {
 		}
 		return sortedMap;
 	}
-	/**
-	 *
-	 *  
-StandardTokenizer src = new StandardTokenizer(YOUR_VERSION, YOUR_FILE_READER);
-src.setMaxTokenLength(YOUR_MAX_LENGTH);
-TokenStream tokenStream = new StandardFilter(Your_VERSION, src);
-CharTermAttribute charTermAttribute = tokenStream.addAttribute(CharTermAttribute.class);
 
-tokenStream.reset();
-while (tokenStream.incrementToken()) {
-   String term = charTermAttribute.toString(); // here you get the terms
-}
-	 */
-
-	
-	
 }

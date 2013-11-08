@@ -41,5 +41,10 @@ public class TokenizeDoc {
 			fread.close();
 		
 		}//end for
+		System.out.println(freq);
+	}
+	
+	public TokenizeDoc(){
+		
 	}
 }
