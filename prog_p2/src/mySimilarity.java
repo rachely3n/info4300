@@ -1,4 +1,8 @@
 public class mySimilarity extends TFIDFSimilarity {
+  public mySimilarity() {
+    super();
+  }
+  
   public abstract float tf(float freq) {
     float val = log(freq + 1);
     return val;
