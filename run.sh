@@ -1,3 +1,2 @@
 #!/bin/bash
-javac evaluateQueries.java
-java evaluateQueries
+java -jar c.jar
