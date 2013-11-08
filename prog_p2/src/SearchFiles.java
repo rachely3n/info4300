@@ -28,8 +28,11 @@ public class SearchFiles {
 		try {
 			IndexReader reader = DirectoryReader.open(FSDirectory.open(new File(indexDir)));
 			IndexSearcher searcher = new IndexSearcher(reader);
-			MySimilarity sim = new mySimilarity();
-			searcher.setSimilarity(sim);
+			
+			//Used with mySimilarity.java for part E
+			//MySimilarity sim = new mySimilarity();
+			//searcher.setSimilarity(sim);
+			
 			Analyzer analyzer = new MyAnalyzer(Version.LUCENE_44, stopwords);
 
 			QueryParser parser = new QueryParser(Version.LUCENE_44, field, analyzer);
