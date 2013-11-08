@@ -53,7 +53,6 @@ public class IndexFiles {
 			// Create a new index in the directory, removing any
 			// previously indexed documents:
 			iwc.setOpenMode(OpenMode.CREATE);
-			
 
 			writer = new IndexWriter(dir, iwc);
 			// Write the index into them.
